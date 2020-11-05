@@ -48,9 +48,9 @@ jobs:
           # Base path for archive files
           path: ./deploy
           # Working directory before zipping
-          directory: ./deploy
+          directory: ./deploy/.
           # List of excluded files / directories
-          exclusions: # optional, default is 
+          #exclusions: .
           # Tool to use for archiving
           type: zip
 
