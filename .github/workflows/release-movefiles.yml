@@ -46,9 +46,9 @@ jobs:
           # Filename for archive
           filename: MoveFiles.zip
           # Base path for archive files
-          path: ./deploy
+          path: ./MoveFiles/deploy/
           # Working directory before zipping
-          directory: ./deploy
+          directory: .
           # List of excluded files / directories
           #exclusions: .
           # Tool to use for archiving
