@@ -29,21 +29,21 @@ jobs:
           dotnet restore
 
       - name: Build
-	      run: |
+          run: |
+            cd src/MoveFiles.Main
+            dotnet build --configuration Release --no-restore
+
+      - name: Publish Release
+        run: |
           cd src/MoveFiles.Main
-          dotnet build --configuration Release --no-restore
+          dotnet publish -r win-x64 -c Release /p:PublishTrimmed=true -o deploy
 
-	    - name: Publish Release
-	        run: |
-	          cd src/MoveFiles.Main
-	          dotnet publish -r win-x64 -c Release /p:PublishTrimmed=true -o deploy
-
-	    - name: Create release
-	      id: create_release
-	      uses: actions/create-release@v1
-	      env:
-		      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-		    with:
-		      local: src/MoveFiles.Main/deploy
-		      tag_name: ${{ github.ref }}
-		      release_name: Release ${{ github.ref }}
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          local: src/MoveFiles.Main/deploy
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
