@@ -2,11 +2,14 @@ name: MoveFiles application CI/CD
 
 on:
   push:
-    branches: [master]			
-      tags: ['v*.*.*']
+    branches: 
+      - master
+    tags: 
+      - 'v*.*.*'
   pull_request: 
-      branches: [master]
-		
+    branches:
+      - master
+	
 jobs:
   build-and-release:
     if: github.event_name == 'push'
