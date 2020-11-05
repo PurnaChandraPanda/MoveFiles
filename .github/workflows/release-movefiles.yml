@@ -24,8 +24,8 @@ jobs:
 
       - name: Install dependencies
 	run: |
-	  cd src/MoveFiles.Main
-          dotnet restore
+	cd src/MoveFiles.Main
+	dotnet restore
 
 	  - name: Build
 	    run: |
