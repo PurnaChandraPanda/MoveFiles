@@ -14,7 +14,7 @@ jobs:
   build-and-release:
     if: github.event_name == 'push'
     name: MoveFiles application CI/CD
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
