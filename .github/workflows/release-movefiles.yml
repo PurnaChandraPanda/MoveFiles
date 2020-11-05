@@ -1,47 +1,47 @@
 name: MoveFiles application CI/CD
 
 on:
-	push:
-		branches: [master]			
-		tags: ['v*.*.*']
-	pull_request: 
-		branches: [master]
+  push:
+	branches: [master]			
+	tags: ['v*.*.*']
+  pull_request: 
+	branches: [master]
 			
 jobs:
-	build-and-release:
-		if: github.event_name == 'push'
-		name: MoveFiles application CI/CD
-		runs-on: windows-latest
-		steps:
-			- name: Checkout code
-			  uses: actions/checkout@v2
+  build-and-release:
+	if: github.event_name == 'push'
+	name: MoveFiles application CI/CD
+	runs-on: windows-latest
+	steps:
+	  - name: Checkout code
+		uses: actions/checkout@v2
 
-			- name: Setup .NET Core
-			  uses: actions/setup-dotnet@v1
+	  - name: Setup .NET Core
+		uses: actions/setup-dotnet@v1
 
-			- name: Install dependencies
-			  run: |
-				cd src/MoveFiles.Main
-				dotnet restore
+      - name: Install dependencies
+		run: |
+		  cd src/MoveFiles.Main
+		  dotnet restore
 
-			- name: Build
-			  run: |
-				cd src/MoveFiles.Main
-				dotnet build --configuration Release --no-restore
+	  - name: Build
+		run: |
+		  cd src/MoveFiles.Main
+	      dotnet build --configuration Release --no-restore
 			
-			- name: Publish Release
-			  run: |
-				cd src/MoveFiles.Main
-				dotnet publish -r win-x64 -c Release /p:PublishTrimmed=true -o deploy
+	  - name: Publish Release
+		run: |
+		  cd src/MoveFiles.Main
+		  dotnet publish -r win-x64 -c Release /p:PublishTrimmed=true -o deploy
 
-			- name: Create release
-			  id: create_release
-			  uses: actions/create-release@v1
-			  env:
-				GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-			  with:
-				local: src/MoveFiles.Main/deploy
-				tag_name: ${{ github.ref }}
-				release_name: Release ${{ github.ref }}
+	  - name: Create release
+	    id: create_release
+		uses: actions/create-release@v1
+		env:
+		  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+		with:
+		  local: src/MoveFiles.Main/deploy
+		  tag_name: ${{ github.ref }}
+		  release_name: Release ${{ github.ref }}
 
 
