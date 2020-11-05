@@ -11,10 +11,10 @@ namespace MoveFiles.Component.Tests
     [TestClass()]
     public class ManagerTests
     {
-        string[] arguments = new string[] { "-toFilterFile", @"D:\work\tools\images\filter\ToFilterFiles1.csv",
+        string[] arguments = new string[] { "-toFilterFile", @"C:\Temp\images\filter\ToFilterFiles1.csv",
                                             "-filterKind", "equals",
-                                            "-source", @"D:\work\tools\images\source",
-                                            "-destination", @"D:\work\tools\images\target" };
+                                            "-source", @"C:\Temp\images\source",
+                                            "-destination", @"C:\Temp\images\target" };
 
         [TestMethod()]
         public async Task ValidateTest()

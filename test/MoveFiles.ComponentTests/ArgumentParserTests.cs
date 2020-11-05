@@ -11,10 +11,10 @@ namespace MoveFiles.Component.Tests
     [TestClass()]
     public class ArgumentParserTests
     {
-        string[] arguments = new string[] { "-toFilterFile", @"D:\work\tools\images\filter\ToFilterFiles1.csv",
+        string[] arguments = new string[] { "-toFilterFile", @"C:\Temp\images\filter\ToFilterFiles1.csv",
                                             "-filterKind", "equals",
-                                            "-source", @"D:\work\tools\images\source",
-                                            "-destination", @"D:\work\tools\images\target" };
+                                            "-source", @"C:\Temp\images\source",
+                                            "-destination", @"C:\Temp\images\target" };
 
         [TestMethod()]
         public async Task ParseNotNullTest()
@@ -31,10 +31,10 @@ namespace MoveFiles.Component.Tests
 
             // Expected result
             var expectResult = new Criteria {
-                FilterFor = @"D:\work\tools\images\filter\ToFilterFiles1.csv",
+                FilterFor = @"C:\Temp\images\filter\ToFilterFiles1.csv",
                 FilterKind = FilterCriteria.Equals,
-                Source = @"D:\work\tools\images\source",
-                Destination = @"D:\work\tools\images\target"
+                Source = @"C:\Temp\images\source",
+                Destination = @"C:\Temp\images\target"
             };
 
             Assert.AreEqual(expectResult.FilterFor, parseResult.FilterFor);
