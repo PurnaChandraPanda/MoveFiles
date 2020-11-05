@@ -44,7 +44,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          #local: src/MoveFiles.Main/deploy
+          #local: src/MoveFiles.Main/deploy###
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           prerelease: true
