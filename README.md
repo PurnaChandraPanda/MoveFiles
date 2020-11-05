@@ -34,6 +34,8 @@ MoveFiles.Main.exe
 4. Define destination folder
     - Folder path where you like the files be copied over to 
 
+Note: There is a structure added in [sample-images](https://github.com/PurnaChandraPanda/MoveFiles/tree/master/sample-images) folder. You could refer to review the samples.
+
 # Run
 - Use PS or cmd prompt to run utility
 - if PS:
