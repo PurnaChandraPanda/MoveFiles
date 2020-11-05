@@ -15,6 +15,7 @@ jobs:
     if: github.event_name == 'push'
     name: MoveFiles application CI/CD
     runs-on: windows-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
