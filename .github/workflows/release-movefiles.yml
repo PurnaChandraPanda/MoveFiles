@@ -23,9 +23,9 @@ jobs:
         uses: actions/setup-dotnet@v1
 
       - name: Install dependencies
-	run: |
-	cd src/MoveFiles.Main
-	dotnet restore
+		run: |
+		  cd src/MoveFiles.Main
+		  dotnet restore
 
 	  - name: Build
 	    run: |
@@ -41,8 +41,8 @@ jobs:
 	    id: create_release
 	      uses: actions/create-release@v1
 	      env:
-		GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-		with:
-		  local: src/MoveFiles.Main/deploy
-		  tag_name: ${{ github.ref }}
-		  release_name: Release ${{ github.ref }}
+		    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+		  with:
+		    local: src/MoveFiles.Main/deploy
+		    tag_name: ${{ github.ref }}
+		    release_name: Release ${{ github.ref }}
