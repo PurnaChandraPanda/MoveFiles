@@ -29,9 +29,9 @@ jobs:
           dotnet restore
 
       - name: Build
-          run: |
-            cd src/MoveFiles.Main
-            dotnet build --configuration Release --no-restore
+        run: |
+          cd src/MoveFiles.Main
+          dotnet build --configuration Release --no-restore
 
       - name: Publish Release
         run: |
