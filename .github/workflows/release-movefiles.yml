@@ -47,3 +47,4 @@ jobs:
           local: src/MoveFiles.Main/deploy
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
+          prerelease: true
