@@ -24,14 +24,14 @@ jobs:
         uses: actions/setup-dotnet@v1
 
       - name: Install dependencies
-		run: |
-		  cd src/MoveFiles.Main
-		  dotnet restore
+        run: |
+	  cd src/MoveFiles.Main
+	  dotnet restore
 
-	  - name: Build
-	    run: |
-	      cd src/MoveFiles.Main
-	      dotnet build --configuration Release --no-restore
+      - name: Build
+	run: |
+	  cd src/MoveFiles.Main
+	  dotnet build --configuration Release --no-restore
 
 	  - name: Publish Release
 	    run: |
