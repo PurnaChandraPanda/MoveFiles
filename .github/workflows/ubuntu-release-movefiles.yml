@@ -54,11 +54,15 @@ jobs:
           # Tool to use for archiving
           type: zip
 
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.26.0
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
+        with:          
+          tag_name: 0.7
+          release_name: Release 0.0.7
+          prerelease: false # set true if just testing
           
       - name: Upload Release Asset
         id: upload-release-asset 
