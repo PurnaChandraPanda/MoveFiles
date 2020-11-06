@@ -36,7 +36,7 @@ jobs:
       - name: Publish Release
         run: |
           cd src/MoveFiles.Main
-          dotnet publish -r win-x64 -c Release /p:PublishTrimmed=true -o ../../deploy
+          dotnet publish -r win-x64 -c Release /p:PublishTrimmed=true -o ../../package
 
       - name: Zip Release
         ## You may pin to the exact commit or the version.
@@ -46,7 +46,7 @@ jobs:
           # Filename for archive
           filename: MoveFiles.zip
           # Base path for archive files
-          path: ./deploy/
+          path: ./package/
           # Working directory before zipping
           directory: .
           # List of excluded files / directories
@@ -60,8 +60,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:          
-          tag_name: 0.5
-          release_name: Release 0.0.5
+          tag_name: 0.6
+          release_name: Release 0.0.6
           prerelease: true
           
       - name: Upload Release Asset
