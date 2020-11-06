@@ -38,6 +38,22 @@ jobs:
           cd src/MoveFiles.Main
           dotnet publish -r win-x64 -c Release /p:PublishTrimmed=true -o ../../package
 
+      - name: Zip Release
+        ## You may pin to the exact commit or the version.
+        # uses: TheDoctor0/zip-release@a1afcab9c664c9976ac398fa831eac67bed1eb0e
+        uses: TheDoctor0/zip-release@0.4.1
+        with:
+          # Filename for archive
+          filename: MoveFiles.zip
+          # Base path for archive files
+          path: ./package/
+          # Working directory before zipping
+          directory: .
+          # List of excluded files / directories
+          #exclusions: .
+          # Tool to use for archiving
+          type: zip
+
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.26.0
         env:
