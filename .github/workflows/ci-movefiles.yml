@@ -45,11 +45,6 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo ${{ env.tagname }}
-          echo ${{ env.releasename }}
-          echo $tagname
-          echo $releasename
         with:          
           tag_name: ${{ env.tagname }}
           release_name: ${{ env.releasename }}
