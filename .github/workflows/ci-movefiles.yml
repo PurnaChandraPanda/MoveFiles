@@ -41,14 +41,10 @@ jobs:
           $fileVersion = (Get-Command ./MoveFiles.Main.dll).FileVersionInfo.FileVersion
           
           # Set environment variables
-          $tagname="v$fileVersion"
-          $releasename="Release-v$fileVersion"
+          echo "::set-env name=tagname::v$fileVersion"
+          echo "::set-env name=releasename::Release-v$fileVersion"
 
           # Print environment variables
-          echo "Local environment variables"
-          echo "::tagname=$tagname"
-          echo "::releasename=$releasename"
-
           echo "global::tagname=${{ env.tagname }}"
           echo "global::releasename=${{ env.releasename }}"
 
