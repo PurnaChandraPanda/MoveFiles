@@ -1,9 +1,5 @@
 name: MoveFiles CI
 
-env:
-  tagname: ""
-  releasename: ""
-
 on:
   push:
     branches: 
@@ -44,15 +40,16 @@ jobs:
           echo "::set-env name=tagname::v$fileVersion"
           echo "::set-env name=releasename::Release-v$fileVersion"
 
-          # Print environment variables
-          echo "global::tagname=${{ env.tagname }}"
-          echo "global::releasename=${{ env.releasename }}"
-
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo ${{ env.tagname }}
+          echo ${{ env.releasename }}
+          echo $tagname
+          echo $releasename
         with:          
           tag_name: ${{ env.tagname }}
           release_name: ${{ env.releasename }}
