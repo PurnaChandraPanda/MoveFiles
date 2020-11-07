@@ -32,7 +32,8 @@ jobs:
           # Go to package and .zip raw contents
           cd ../../package
           Compress-Archive -Path ./* -DestinationPath ./MoveFiles.zip
-          echo ":: zip path - (Get-Command ./MoveFiles.zip).Source"
+          $zipPath = (Get-Command ./MoveFiles.zip).Source
+          echo ":: zip path - $zipPath"
 
           # Get file version details to prepare for release
           $fileVersion = (Get-Command ./MoveFiles.Main.dll).FileVersionInfo.FileVersion
