@@ -1,5 +1,9 @@
 name: MoveFiles CI
 
+env:
+  tagname: ""
+  releasename: ""
+
 on:
   push:
     branches: 
