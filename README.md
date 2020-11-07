@@ -11,9 +11,10 @@ MoveFiles.Main.exe
 ```
 
 # Download utility
-- TODO
-- Pull the latest release
-- Unzip it
+- Get the utility downloaded from [latest-release](https://github.com/PurnaChandraPanda/MoveFiles/releases) section.
+- Download [MoveFiles.zip] from latest section.
+- Go to downloaded folder. Right click the zip -> Extract All -> go with default path (or update if some other path required) -> Extract.
+- Launch PS or CMD -> cd to the earlier extracted directory.
 
 # How to execute?
 1. Define filter
