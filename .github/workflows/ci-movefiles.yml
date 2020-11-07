@@ -2,9 +2,13 @@ name: MoveFiles CI
 
 on:
   push:
+    paths-ignore:
+      - "*.md"
     branches: 
       - master
-  pull_request: 
+  pull_request:
+    paths-ignore:
+      - "*.md"
     branches:
       - master
 
